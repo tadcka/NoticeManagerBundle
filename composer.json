@@ -1,7 +1,7 @@
 {
     "name":         "tadcka/notice-manager-bundle",
     "homepage":     "https://github.com/tadcka/NoticeManagerBundle",
-    "description":  "Full control the user's address on Symfony2",
+    "description":  "Notice manager Symfony2 bundle",
     "keywords":     ["notice", "notice manager"],
     "type":         "symfony-bundle",
     "license":      "MIT",
