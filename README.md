@@ -1,4 +1,4 @@
 NoticeManagerBundle
 =============
 
-Notice manager symfony2 bundle
+Notice manager Symfony2 bundle
