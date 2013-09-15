@@ -42,7 +42,7 @@
     background: -webkit-linear-gradient(top, rgba(217, 237, 247, 1) 0%, rgba(186, 230, 252, 1) 100%);
 }
 
-.alert-notice a {
+a.alert-notice-href {
     width: 16px;
     height: 16px;
     float: right;

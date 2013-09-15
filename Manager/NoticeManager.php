@@ -22,14 +22,14 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Tadcka\NoticeManagerBundle\Handler;
+namespace Tadcka\NoticeManagerBundle\Manager;
 
 use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Tadcka\NoticeManagerBundle\Container\NoticeContainerInterface;
 use Tadcka\NoticeManagerBundle\Type;
 
-class NoticeHandler
+class NoticeManager
 {
     /**
      * @var TwigEngine
@@ -47,14 +47,29 @@ class NoticeHandler
         $this->session = $session;
     }
 
+    /**
+     * Get html
+     *
+     * @param NoticeContainerInterface $container
+     * @param string|null $type
+     * @return null|string
+     */
     public function getHtml(NoticeContainerInterface $container, $type = null)
     {
         $html = '';
         if ($type === null) {
-            $html = $this->generateHtml($container, Type::NOTICE_SUCCESS);
-            $html .= $this->generateHtml($container, Type::NOTICE_INFORMATION);
-            $html .= $this->generateHtml($container, Type::NOTICE_WARNING);
-            $html .= $this->generateHtml($container, Type::NOTICE_ERROR);
+            if (count($container->getNoticesByType(Type::NOTICE_SUCCESS)) > 0) {
+                $html = $this->generateHtml($container, Type::NOTICE_SUCCESS);
+            }
+            if (count($container->getNoticesByType(Type::NOTICE_INFORMATION)) > 0) {
+                $html .= $this->generateHtml($container, Type::NOTICE_INFORMATION);
+            }
+            if (count($container->getNoticesByType(Type::NOTICE_WARNING)) > 0) {
+                $html .= $this->generateHtml($container, Type::NOTICE_WARNING);
+            }
+            if (count($container->getNoticesByType(Type::NOTICE_ERROR)) > 0) {
+                $html .= $this->generateHtml($container, Type::NOTICE_ERROR);
+            }
         } else {
             $html = $this->generateHtml($container, $type);
         }
@@ -62,6 +77,13 @@ class NoticeHandler
         return $html;
     }
 
+    /**
+     * Generate html
+     *
+     * @param NoticeContainerInterface $container
+     * @param string $type
+     * @return null|string
+     */
     private function generateHtml(NoticeContainerInterface $container, $type)
     {
         $notices = $container->getNoticesByType($type);
@@ -79,6 +101,12 @@ class NoticeHandler
         return null;
     }
 
+    /**
+     * Manager template info
+     *
+     * @param string $type
+     * @return array
+     */
     private function managerTemplateInfo($type)
     {
         $templatePath = null;
@@ -107,6 +135,6 @@ class NoticeHandler
 
     public function save(NoticeContainerInterface $container, $type = null)
     {
-        $this->session->getFlashBag()->add('flash_messages', $this->getHtml($container, $type));
+        $this->session->getFlashBag()->add('flash_notices', $this->getHtml($container, $type));
     }
 }
