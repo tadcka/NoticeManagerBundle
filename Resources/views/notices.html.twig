@@ -1,0 +1,9 @@
+{#{{ dump(app.session.flashbag..get('flash_notices')) }}#}
+
+{% for type, notices in app.session.flashbag..get('flash_notices') %}
+    {% for notice in notices %}
+        <div class="alert-notice {{ notice }}-notice">
+            {{ notice | raw }} <a class="alert-notice-href" href="javascript:">×</a>
+        </div>
+    {% endfor %}
+{% endfor %}
