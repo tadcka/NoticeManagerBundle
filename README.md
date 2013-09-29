@@ -39,3 +39,17 @@ public function registerBundles()
     );
 }
 ```
+
+### Step 3: Include twig template
+
+```twig
+{% include 'TadckaNoticeManagerBundle::notices.html.twig' %}
+```
+
+### Step 4: Example
+
+``` php
+$noticeContainer = new \Tadcka\NoticeManagerBundle\Container\NoticeContainer();
+$noticeContainer->add('Hello world!', \Tadcka\NoticeManagerBundle\NoticeType::SUCCESS);
+$this->get('tadcka_notice_manager')->save($noticeContainer, \Tadcka\NoticeManagerBundle\NoticeType::SUCCESS);
+```
