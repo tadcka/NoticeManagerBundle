@@ -10,7 +10,6 @@
 
     <services>
         <service id="tadcka_notice_manager" class="%tadcka_notice_manager.class%">
-            <argument type="service" id="twig" />
             <argument type="service" id="session" />
         </service>
     </services>

@@ -29,10 +29,11 @@ class NoticeContainer implements NoticeContainerInterface
     private $container = array();
 
     /**
-     * Add notice
+     * Add notice.
      *
      * @param string $notice
      * @param string $type
+     *
      * @return NoticeContainer
      */
     public function add($notice, $type)
@@ -43,10 +44,11 @@ class NoticeContainer implements NoticeContainerInterface
     }
 
     /**
-     * Set notices
+     * Set notices.
      *
      * @param array $notices
      * @param string $type
+     *
      * @return NoticeContainer
      */
     public function setNotices(array $notices, $type)
@@ -57,10 +59,11 @@ class NoticeContainer implements NoticeContainerInterface
     }
 
     /**
-     * Get notices by type
+     * Get notices by type.
      *
      * @param string $type
-     * @return array
+     *
+     * @return array|string[]
      */
     public function getNoticesByType($type)
     {
@@ -72,7 +75,7 @@ class NoticeContainer implements NoticeContainerInterface
     }
 
     /**
-     * Get notices
+     * Get notices.
      *
      * @return array
      */
@@ -82,9 +85,10 @@ class NoticeContainer implements NoticeContainerInterface
     }
 
     /**
-     * Remove notices by type
+     * Remove notices by type.
      *
      * @param string $type
+     *
      * @return NoticeContainer
      */
     public function removeNoticesByType($type)
@@ -97,7 +101,7 @@ class NoticeContainer implements NoticeContainerInterface
     }
 
     /**
-     * Remove notices
+     * Remove notices.
      *
      * @return NoticeContainer
      */

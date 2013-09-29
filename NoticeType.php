@@ -24,25 +24,25 @@
 
 namespace Tadcka\NoticeManagerBundle;
 
-final class Type
+final class NoticeType
 {
     /**
      * Notice type success.
      */
-    const NOTICE_SUCCESS = 'success';
+    const SUCCESS = 'success';
 
     /**
      * Notice type information.
      */
-    const NOTICE_INFORMATION = 'information';
+    const INFORMATION = 'information';
 
     /**
      * Notice type error.
      */
-    const NOTICE_ERROR = 'error';
+    const ERROR = 'error';
 
     /**
      * Notice type warning.
      */
-    const NOTICE_WARNING = 'warning';
+    const WARNING = 'warning';
 }
