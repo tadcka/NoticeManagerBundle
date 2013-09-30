@@ -40,13 +40,21 @@ public function registerBundles()
 }
 ```
 
-### Step 3: Include twig template
+### Step 3: Include javascript and css
+
+```twig
+@TadckaNoticeManagerBundle/Resources/public/css/notice-manager.css
+
+@TadckaNoticeManagerBundle/Resources/public/js/notice-manager.js
+```
+
+### Step 4: Include twig template
 
 ```twig
 {% include 'TadckaNoticeManagerBundle::notices.html.twig' %}
 ```
 
-### Step 4: Example
+### Step 5: Example
 
 ``` php
 $noticeContainer = new \Tadcka\NoticeManagerBundle\Container\NoticeContainer();
