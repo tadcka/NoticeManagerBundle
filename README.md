@@ -65,7 +65,7 @@ or
 
 $noticeContainer = new \Tadcka\NoticeManagerBundle\Container\NoticeContainer();
 $noticeContainer->add('Hello world!', \Tadcka\NoticeManagerBundle\NoticeType::SUCCESS);
-$this->renderView(
+$html = $this->renderView(
     'TadckaNoticeManagerBundle::notices.html.twig',
     array(
         'notice_container' => $noticeContainer->getNotices(),
