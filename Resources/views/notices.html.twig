@@ -1,5 +1,5 @@
 <div class="block_notices">
-    {% for type, notices in app.session.flashbag.get('flash_notices') %}
+    {% for type, notices in notice_container %}
         {% for notice in notices %}
             <div class="alert-notice {{ type }}-notice">
                 {{- notice | raw -}} <a class="alert-notice-href" href="javascript:">×</a>
