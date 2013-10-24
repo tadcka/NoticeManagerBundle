@@ -51,7 +51,7 @@ public function registerBundles()
 ### Step 4: Include twig template
 
 ```twig
-{% include 'TadckaNoticeManagerBundle::notices.html.twig' %}
+{% include 'TadckaNoticeManagerBundle::flash_notices.html.twig' %}
 ```
 
 ### Step 5: Example
@@ -60,4 +60,15 @@ public function registerBundles()
 $noticeContainer = new \Tadcka\NoticeManagerBundle\Container\NoticeContainer();
 $noticeContainer->add('Hello world!', \Tadcka\NoticeManagerBundle\NoticeType::SUCCESS);
 $this->get('tadcka_notice_manager')->save($noticeContainer);
+
+or
+
+$noticeContainer = new \Tadcka\NoticeManagerBundle\Container\NoticeContainer();
+$noticeContainer->add('Hello world!', \Tadcka\NoticeManagerBundle\NoticeType::SUCCESS);
+$this->renderView(
+    'TadckaNoticeManagerBundle::notices.html.twig',
+    array(
+        'notice_container' => $noticeContainer->getNotices(),
+    )
+);
 ```
