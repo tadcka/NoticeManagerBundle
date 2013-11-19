@@ -1,6 +1,8 @@
 NoticeManagerBundle
 =============
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/fac93164-b975-48b7-b267-5de64de546f7/big.png)](https://insight.sensiolabs.com/projects/fac93164-b975-48b7-b267-5de64de546f7)
+
 Notice manager Symfony2 bundle
 
 ## Installation
